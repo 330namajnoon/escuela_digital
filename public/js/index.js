@@ -1,19 +1,22 @@
-import Game from "../components/game/game.js";
-import Control from "../components/control/control.js";
-import levels from "./levels.js";
-function Index() {
-    this.level = levels[0];
-    this.game = new Game(this);
-    this.control = new Control(this);
-   
+import Formulario from "./components/Formulario.js";
+import Anuncios from "./components/Anuncios.js";
+import createElement from "./createElement.js";
+function App() {
+    this.page = new Anuncios(this.setPage.bind(this));
+}
+App.prototype.setPage = function(name) {
+    switch (name) {
+        case "f":
+            document.body.innerHTML = "";
+            this.page = new Formulario(this.setPage.bind(this));
+            break;
+        case "a":
+            document.body.innerHTML = "";
+            this.page = new Anuncios(this.setPage.bind(this));
+            break;
+    
+            
+    }
 }
 
-const index = new Index();
-
-
-export default index;
-
-
-
-
-
+const app = new App();
