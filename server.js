@@ -4,7 +4,7 @@ const express = require("express");
 const multer = require("multer");
 const imageUpload = multer({storage:multer.diskStorage({
     destination:(req,file,cd)=> {
-        cd(null,"./public/images")
+        cd(null,"./public/idealista/images")
     },
     filename:(req,file,cd) => {
         cd(null,file.originalname);
